@@ -28,7 +28,7 @@ env_id = "CartPole-v0"
 GI = GameInteraction(env_id)
 
 ### Parameters ###
-LEARNING_RATE = 0.001
+LEARNING_RATE = 0.00025
 
 epsilon_start = 1
 epsilon_final = 0.0001
@@ -40,7 +40,7 @@ MEMORY_SIZE = 1000 # nb of experiences to store and train on
 
 GAMMA = 0.99 # cf MDP
 
-HIDDEN_LSTM_SIZE = 128
+HIDDEN_LSTM_SIZE = 256
 ##################
 
 # generate screen to get shapes
