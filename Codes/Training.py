@@ -14,7 +14,7 @@ from LossComputing import ComputeLoss
 ### compute option  : number of games to play ###
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--nb_games", type=int,
-                    help="Number of games to play", default = 5000)
+                    help="Number of games to play", default = 1000)
 
 args = parser.parse_args()
 
@@ -28,10 +28,10 @@ env_id = "CartPole-v0"
 GI = GameInteraction(env_id)
 
 ### Parameters ###
-LEARNING_RATE = 0.0075
+LEARNING_RATE = 0.001
 
 epsilon_start = 1
-epsilon_final = 0.00001
+epsilon_final = 0.0001
 epsilon_decay = 5000
 # Decaying epsilon function
 epsilon_by_frame = lambda frame_idx: epsilon_final + (epsilon_start - epsilon_final) * math.exp(-1. * frame_idx / epsilon_decay)

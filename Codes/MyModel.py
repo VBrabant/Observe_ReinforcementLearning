@@ -34,11 +34,13 @@ class MyModel(nn.Module):
         self.lstm = nn.LSTM(self.linear_input_size, self.hidden_lstm_size, batch_first=True)
         
         self.advantage = nn.Sequential(
-            nn.Linear(self.hidden_lstm_size, outputs)
+                nn.ELU(),
+                nn.Linear(self.hidden_lstm_size, outputs)
         )
         
         self.value = nn.Sequential(
-            nn.Linear(self.hidden_lstm_size, 1)
+                nn.ELU(), 
+                nn.Linear(self.hidden_lstm_size, 1)
         )
         
     def forward(self, x, hidden):
