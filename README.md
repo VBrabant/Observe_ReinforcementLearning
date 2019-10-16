@@ -3,7 +3,7 @@
 ## Installation
 
 You can directly _clone_ the repository and install the packages listed in the `requirements.txt` file. 
-Here are the commands :
+Here are the commands with python in 3.6.5 :
 ```
 git clone https://github.com/VBrabant/Observe_ReinforcementLearning
 pip install -r requirements.txt
