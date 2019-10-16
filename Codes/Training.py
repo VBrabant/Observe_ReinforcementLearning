@@ -14,7 +14,7 @@ from LossComputing import ComputeLoss
 ### compute option  : number of games to play ###
 parser = argparse.ArgumentParser()
 parser.add_argument("-n", "--nb_games", type=int,
-                    help="Number of games to play", default = 2000)
+                    help="Number of games to play", default = 5000)
 
 args = parser.parse_args()
 
@@ -31,7 +31,7 @@ GI = GameInteraction(env_id)
 LEARNING_RATE = 0.0075
 
 epsilon_start = 1
-epsilon_final = 0.0001
+epsilon_final = 0.00001
 epsilon_decay = 5000
 # Decaying epsilon function
 epsilon_by_frame = lambda frame_idx: epsilon_final + (epsilon_start - epsilon_final) * math.exp(-1. * frame_idx / epsilon_decay)
@@ -40,7 +40,7 @@ MEMORY_SIZE = 1000 # nb of experiences to store and train on
 
 GAMMA = 0.99 # cf MDP
 
-HIDDEN_LSTM_SIZE = 64
+HIDDEN_LSTM_SIZE = 128
 ##################
 
 # generate screen to get shapes
