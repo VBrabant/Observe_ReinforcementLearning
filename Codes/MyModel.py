@@ -31,12 +31,7 @@ class MyModel(nn.Module):
         linear_input_size = convw * convh * 32
         self.linear_input_size = linear_input_size
         
-        self.feature = nn.Sequential(
-                nn.Linear(self.linear_input_size, self.hidden_lstm_size),
-                nn.ELU()
-                )
-        
-        self.lstm = nn.LSTM(self.hidden_lstm_size, self.hidden_lstm_size, batch_first=True)
+        self.lstm = nn.LSTM(self.linear_input_size, self.hidden_lstm_size, batch_first=True)
         
         self.advantage = nn.Sequential(
             nn.Linear(self.hidden_lstm_size, outputs)
@@ -49,7 +44,6 @@ class MyModel(nn.Module):
     def forward(self, x, hidden):
         x = self.conv(x)
         x = x.reshape(1, -1, self.linear_input_size)
-        x = self.feature(x)
         x, hidden = self.lstm(x, hidden)
         advantage = self.advantage(x)
         value     = self.value(x)
