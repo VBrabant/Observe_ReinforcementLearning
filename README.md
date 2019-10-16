@@ -1,4 +1,4 @@
-# Observe your machine learning to play video game
+# Observe your machine learning to play a video game
 
 ##  Description
 
