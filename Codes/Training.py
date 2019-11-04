@@ -40,7 +40,7 @@ MEMORY_SIZE = 1000 # nb of experiences to store and train on
 
 GAMMA = 0.99 # cf MDP
 
-HIDDEN_LSTM_SIZE = 256
+HIDDEN_LSTM_SIZE = 8
 ##################
 
 # generate screen to get shapes
